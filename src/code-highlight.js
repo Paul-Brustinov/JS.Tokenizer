@@ -3,13 +3,13 @@
 
 	/* 
 	 * TODO:
-	 * regex //
+	 * regex /elements/
 	 * read number separate
 	 * parse markup extensions
 	 * skip hyperlinks in js code!
 	 */
 
-	//^[-+]?(?:[0-9]{0,30}\\.)?[0-9]{1,30}(?:[Ee][-+]?[1-2]?[0-9])?$
+	/*^[-+]?(?:[0-9]{0,30}\\.)?[0-9]{1,30}(?:[Ee][-+]?[1-2]?[0-9])?$*/
 
 	
 	let elems = document.getElementsByClassName('code-highlight');
@@ -24,7 +24,7 @@
 		const instr = /^(Array|Date|Infinity|Function|String|N(umber|aN)|Object|Math|is(Finite|PrototypeOf|NaN)|toString|undefined|alert|confirm|eval|valueOf|hasOwnProperty)$/;
 
 		let lang = tag.getAttribute('data-lang');
-		//reset(tag, lang);
+		/*reset(tag, lang);*/
 		let text = tag.textContent.trim();
 		tag.innerHTML = '';
 		let opts = {
@@ -33,7 +33,7 @@
 			keywords: keywords,
 			instr: instr
 		};
-		//if (lang !== 'xml') return;
+		/*if (lang !== 'xml') return;*/
 		tokenize(text, opts, function (type, token) {
 			if (type !== 'ws')
 				console.dir((type || '?') + '=> ' + token);
@@ -46,7 +46,7 @@
 				if (type === 'keyword')
 					elem.style = "color:blue";
 				if (type === 'instr')
-					elem.style = "color:brown";
+					elem.style = "color:darkcyan";
 				if (type === 'number')
 					elem.style = "font-weight:bold;color:orange;";
 				else if (type === 'comment')
@@ -77,7 +77,6 @@
 
 		const TAB_REPLACE = '  '; /* 2 spaces */
 		let xml = opts && opts.lang === 'xml';
-		//console.dir(opts.lang);
 	
 		function nextChar() {
 			if (pos >= len)
@@ -87,7 +86,7 @@
 			return ch;
 		}
 
-		const backChar = () => { if (pos < len) pos--; };
+		const backChar = () => { if (pos <= len) pos--; };
 		const normalizeTab = ch => ch === '\t' ? TAB_REPLACE : ch;
 		const isDelimiter = ch => delims.indexOf(ch) !== -1;
 		const isStartString = ch => ch === '"' || ch === '`' || ch === "'";
@@ -166,7 +165,8 @@
 				ch = nextChar();
 			} while (ch && !isWhiteSpace(ch) && !isDelimiter(ch));
 			addToken(toktype || 'name');
-			backChar();
+			if (ch)
+				backChar();
 		}
 
 		function addToken(type) {
