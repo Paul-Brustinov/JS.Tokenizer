@@ -86,7 +86,7 @@
 			return ch;
 		}
 
-		const backChar = () => { if (pos <= len) pos--; };
+		const backChar = (ch) => { if (ch && (pos <= len)) pos--; };
 		const normalizeTab = ch => ch === '\t' ? TAB_REPLACE : ch;
 		const isDelimiter = ch => delims.indexOf(ch) !== -1;
 		const isStartString = ch => ch === '"' || ch === '`' || ch === "'";
@@ -116,7 +116,7 @@
 						return addToken('comment');
 					}
 					else {
-						backChar();
+						backChar(nnch);
 					}
 				} else {
 					token += normalizeTab(nch);
@@ -131,7 +131,7 @@
 				ch = nextChar();
 			}
 			addToken('comment');
-			backChar();
+			backChar(ch);
 		}
 
 		function readWhiteSpace(ch) {
@@ -140,7 +140,7 @@
 				ch = nextChar();
 			} while (ch && isWhiteSpace(ch));
 			addToken('ws');
-			backChar();
+			backChar(ch);
 		}
 
 		function skipWhiteSpace(ch) {
@@ -165,8 +165,7 @@
 				ch = nextChar();
 			} while (ch && !isWhiteSpace(ch) && !isDelimiter(ch));
 			addToken(toktype || 'name');
-			if (ch)
-				backChar();
+			backChar(ch);
 		}
 
 		function addToken(type) {
@@ -214,7 +213,7 @@
 					return close;
 				}
 				else
-					backChar();
+					backChar(ch);
 			} else if (ch === '>') {
 				token = ch;
 				addToken('tag');
@@ -222,7 +221,7 @@
 				close = true;
 			}
 			ch = skipWhiteSpace(ch);
-			backChar();
+			backChar(ch);
 			return close;
 		}
 
@@ -310,7 +309,7 @@
 					continue;
 				}
 				else {
-					backChar();
+					backChar(ch);
 				}
 				token = ch;
 				addToken('delim');

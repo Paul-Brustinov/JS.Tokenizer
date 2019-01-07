@@ -67,7 +67,7 @@ throw	true
 try	typeof	var	void
 while	with	yield
 
-/*instructions */
+	/*instructions */
 	Array Date eval hasOwnProperty Infinity isFinite 
 	isNaN isPrototypeOf Math NaN Number Object String toString undefined 
 	valueOf alert confirm
@@ -77,6 +77,7 @@ while	with	yield
 
 <pre class="code-highlight" data-lang="js">
 <script type="text/template">
+	/*first line comment*/
 {
 	// свойства
 	$template: Object,
@@ -84,7 +85,8 @@ while	with	yield
 	$setDirty: Function
 	$defer: Function,
 	$forceValidate: Period
-}.
+	...
+}
 </script>
 </pre>
 
@@ -123,19 +125,16 @@ while	with	yield
 	]]>
 </TextArea>
 <TextBox Content="TEXT BOX ERROR" />
-
-
-
 </script>
 </pre>
 
 <pre class="code-highlight" data-lang="xml">
 <script type="text/template">
-<TextBox Content="TEXT BOX ERROR" />.
+	<TextBox Content="TEXT BOX ERROR" />.
 </script>
 </pre>
 
-	<script type="text/javascript" src="../src/code-highlight.js"></script>
+<script type="text/javascript" src="../src/code-highlight.js"></script>
 </body>
 </html>
 
