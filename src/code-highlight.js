@@ -21,7 +21,7 @@
 
 		const delims = ' ,()[]{}\\*/:=;,+-<>';
 		const keywords = /^(a(wait|sync|rguments)|b(reak)|c(onst|ase|atch|lass|ontinue)|do|de(lete|bugger|fault)|else|f(or|unction|alse|inally)|i(f|n)|n(ew|ull)|v(ar|oid)|let|switch|t(his|hrow|ry|ypeof|rue)|return|w(hile|ith)|yield)$/;
-		const instr = /^(Array|Date|Infinity|Function|String|N(umber|aN)|Object|Math|is(Finite|PrototypeOf|NaN)|toString|undefined|alert|confirm|eval|valueOf|hasOwnProperty)$/;
+		const instr = /^(Array|Date|Boolean|Infinity|Error|Symbol|RegExp|Function|String|N(umber|aN)|Object|Math|is(Finite|PrototypeOf|NaN)|toString|undefined|alert|confirm|eval|valueOf|hasOwnProperty)$/;
 
 		let lang = tag.getAttribute('data-lang');
 		/*reset(tag, lang);*/
