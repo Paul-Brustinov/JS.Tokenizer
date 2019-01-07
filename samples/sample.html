@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8">
+	<title>JS tokenizer</title>
+	<style>
+		pre {
+			font-family: Consolas;
+			font-size: 15px;
+			padding: 10px;
+			margin: 0;
+			border: 1px solid silver;
+			background-color: #f8f8f8;
+		}
+	</style>
+</head>
+<body>
+
+<pre type="text/template" class="code-highlight" data-lang="js">
+<script type="text/template">
+/*
+	Комментарий на русском языке
+*/
+function x() {
+	delete t;
+	switch (x) {
+		case t:
+			break;
+		case 'x':
+			return -7.2;
+		default:
+			return 55.23;
+	}
+	return t + .1 - 0.71e-3;
+};
+
+for (var i = 0; i <= 10; i++) {
+	const template = {
+		commands = {
+			MyCommand: myFunction,         // sample function
+			String: 'Пример строки',       // sample string
+			BackQuotes: `Обратные кавычки` // back quotes
+		};
+	};
+	let x = -55.2345;
+	// say hello
+	alert('hello');
+	text.code.data[7] = 255.23;
+	text.search = /^[-+]?\d*\.?\d*([eE][-+]\d*)?$/;
+	return template;
+}
+
+arguments	async	await*
+break	case	catch
+class*	const	continue
+debugger	default	delete	do
+else	enum*	eval
+export*	extends*	false
+finally	float	for	function
+goto	if	implements	import*
+in	instanceof	int	interface
+let*	new
+null	package	private	protected
+public	return	static
+super*	switch	this
+throw	true
+try	typeof	var	void
+while	with	yield
+
+/*instructions */
+	Array Date eval hasOwnProperty Infinity isFinite 
+	isNaN isPrototypeOf Math NaN Number Object String toString undefined 
+	valueOf alert confirm
+
+</script>
+</pre>
+
+<pre class="code-highlight" data-lang="js">
+<script type="text/template">
+{
+	// свойства
+	$template: Object,
+	// методы
+	$setDirty: Function
+	$defer: Function,
+	$forceValidate: Period
+}
+</script>
+</pre>
+
+<pre class="code-highlight" data-lang="xml">
+<script type="text/template">
+<Button Command="{BindCmd Execute,
+		CommandName=MyCommand,
+		Argument={Bind Document}}">
+	Выполнить команду
+</Button>
+<DataGrid.RowDetails>
+	<DataGridRowDetails Visible="{Bind $HasParent}" Activate="Cell">
+		<!--Тоже комментарий-->
+	<StackPanel Orientation="Horizontal">
+	<Label Margin="0,6,0,0">Пример текста</Label>
+	<Hyperlink Icon="FileLink"
+			   Command="{BindCmd Open, Url='/Sales/Invoice/Edit', Argument={Bind ParentDoc}"
+			   Content="{Bind ParentDoc.$Name}" />
+
+
+
+
+
+
+
+		</StackPanel>
+	</DataGridRowDetails>
+	<!--THIS IS A COMMENT 
+		много текста
+		-->
+</DataGrid.RowDetails>
+<TextArea>
+	<![CDATA[
+		Данные с тегами <> и разными элементами for (i=0; i<1; i++) это данные
+		[]></1;>
+	]]>
+</TextArea>
+<TextBox Content="TEXT BOX ERROR" />
+
+
+
+</script>
+</pre>
+
+<pre class="code-highlight" data-lang="xml">
+<script type="text/template">
+<TextBox Content="TEXT BOX ERROR" />.
+</script>
+</pre>
+
+	<script type="text/javascript" src="../src/code-highlight.js"></script>
+</body>
+</html>
+
